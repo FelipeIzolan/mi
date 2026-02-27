@@ -1,0 +1,109 @@
+html,
+body {
+  font-size: 16px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  margin: auto;
+  padding: 1em;
+  max-width: 40em;
+  color: #212121;
+  background: #FAFAFA;
+}
+
+/*------*/
+/* Add or remove elements */
+/*------*/
+p,
+hr,
+nav,
+main,
+header,
+footer {
+  margin: 1em 0;
+}
+
+/*------*/
+
+article h1 {
+  /*override :-webkit-any*/
+  font-size: 2em;
+}
+
+a {
+  color: inherit;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 3px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+input {
+  vertical-align: middle;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 4px solid #212121;
+  padding-left: 1em;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  padding-inline: 1em;
+}
+
+pre,
+code {
+  color: white;
+  background: #212121;
+  overflow: auto;
+}
+
+input:disabled,
+button:disabled {
+  opacity: 0.9;
+}
+
+td,
+th,
+table {
+  border: 1px solid #212121;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+  background: none;
+  padding: 3px 7px;
+  border: 1px solid #212121;
+  border-radius: 3px;
+}
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  color: #FAFAFA;
+  background: #212121;
+}

@@ -1,0 +1,137 @@
+html,
+body {
+  font-size: 16px;
+  font-family: system-ui;
+  line-height: 1.6;
+}
+
+body {
+  margin: auto;
+  padding: 1em;
+  max-width: 45em;
+  color: #212121;
+  background: #FAFAFA;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1em 0;
+  font-size: 1em;
+}
+
+h1::before {
+  content: '# '
+}
+
+h2::before {
+  content: '## '
+}
+
+h3::before {
+  content: '### '
+}
+
+h4::before {
+  content: '#### '
+}
+
+h5::before {
+  content: '##### '
+}
+
+h6::before {
+  content: '###### '
+}
+
+p,
+main,
+section {
+  margin: 1em 0;
+}
+
+a {
+  color: inherit;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 3px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 4px solid #212121;
+  padding-left: 1em;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  padding-inline: 1em;
+}
+
+pre,
+code {
+  color: white;
+  background: #212121;
+  overflow: auto;
+}
+
+input:disabled,
+button:disabled {
+  opacity: 0.9;
+}
+
+td,
+th,
+table {
+  border: 1px solid #212121;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+  background: none;
+  padding: 3px 7px;
+  border: 1px solid #212121;
+  border-radius: 3px;
+}
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  color: #FAFAFA;
+  background: #212121;
+}
+
+nav,
+footer div {
+  gap: 2px;
+  display: flex;
+  font-size: 14px;
+}

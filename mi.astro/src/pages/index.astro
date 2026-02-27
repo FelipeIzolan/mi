@@ -1,0 +1,29 @@
+---
+import Directory from "@layouts/Directory.astro"
+
+import { Image } from "astro:assets";
+import Banner from "@images/banner.jpg";
+---
+<Directory
+  title={'Home'}
+  description={'mi.astro template'}
+  inodes={[
+    { type: "folder", text: "Blog" },
+  ]}
+>
+<Image src={Banner} alt='banner'/>
+<h2>Hello, World!</h2>
+<p><a href="https://github.com/felipeizolan/mi.astro">mi.astro</a> is a minimal, lightweight Astro.js template designed for fast, content-focused websites.</p>
+<Fragment slot='after'>
+<h2>Content Features</h2>
+<p>mi.astro includes features that enhance the writing environment, such as markdown, syntax highlighting, and more.</p>
+<ul>
+  <li><a href="https://mdxjs.com/">MDX</a> - Markdown with JSX</li>
+  <li><a href="https://github.github.com/gfm/">GFM</a> - Github Flavored Markdown</li>
+  <li><a href="https://shiki.style/">Shiki</a> - Syntax Highlighting</li>
+  <li><a href="https://katex.org/">Katex</a> - Math Typesetting</li>
+  <li><a href="https://github.com/remarkjs/remark-gemoji">Emoji</a> - Text to Emoji</li>
+  <li style="opacity:0.7"><a href="https://plantuml.com/">PlantUML</a> - Text to Diagram</li>
+</ul>
+</Fragment>
+</Directory>

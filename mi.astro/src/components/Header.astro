@@ -1,0 +1,31 @@
+---
+import unslugify from 'unslugify';
+import Folder from "../assets/folder.svg";
+const pathname = Astro.url.pathname;
+const { 
+  date,
+  title,
+  author
+} = Astro.props;
+var cc = '';
+---
+<header>
+  <nav>
+    <a href='/' aria-label="Link to: Home"><Folder /></a>
+    {
+    pathname
+    .split('/')
+    .slice(1)
+    .map(p => {
+      let href = cc + '/' + p;
+      let label = 'Link to: ' + unslugify(p);
+      cc = href;
+      return (<>/</><a {href} aria-label={label}>{p}</a>)
+    })
+    }
+  </nav>
+  <h1 style="margin:0">{title}</h1>
+  {author && <span>{author}</span>}
+  {author && date && <>|</>}
+  {date && <span>{date}</span>}
+</header>

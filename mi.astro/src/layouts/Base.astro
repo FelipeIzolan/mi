@@ -1,0 +1,43 @@
+---
+import '../assets/mi.css';
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import katexURL from "/node_modules/katex/dist/katex.css?url";
+const url = new URL(Astro.url.pathname, Astro.site);
+const {
+  css = {},
+  date,
+  title,
+  author,
+  description
+  } = Astro.props;
+---
+<html lang='pt-BR'>
+  <head>
+    <title>{title}</title>
+  
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={url} />
+    {css.katex && <link rel="stylesheet" href={katexURL} />}
+
+    <meta charset="utf-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <meta name="og:url" content={url} />
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={description} />
+    <meta name="og:image" content={Astro.site + 'og.png'}/>
+  </head>
+  <body>
+    <Header 
+      date={date}
+      title={title}
+      author={author}
+    />
+    <slot />
+    <Footer />
+  </body>
+</html>

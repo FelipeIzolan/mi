@@ -1,0 +1,22 @@
+{
+  "name": "mi-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/sitemap": "^3.4.1",
+    "@sindresorhus/slugify": "^2.2.1",
+    "unslugify": "^1.0.4",
+    "astro": "^5.11.0",
+    "katex": "^0.16.22",
+    "rehype-katex": "^7.0.1",
+    "remark-gemoji": "^8.0.0",
+    "remark-math": "^6.0.0"
+  }
+}
