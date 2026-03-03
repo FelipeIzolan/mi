@@ -50,3 +50,8 @@ Minimal neovim configuration concentrated in a single file (~100 ms startup time
 > **\<S\>** is Shift;\
 > **\<CR\>** is Enter;\
 > **\<Leader\>** is Spacebar;
+
+## 🖼️ Screenshoots
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0d2abffd-8715-4d08-a605-c9428d90493f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7a0ce2f2-c8a0-4b65-b1fa-02f4900f4758" />
