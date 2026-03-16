@@ -22,7 +22,7 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={url} />
     {css.katex && <link rel="stylesheet" href={katexURL} />}
-    {rss && <link rel="alternate" type="application/rss+xml" title={RSSTitle} href={new URL('rss.xml', Astro.site)} />}
+    {rss && <link rel="alternate" type="application/rss+xml" title={rss.title} href={rss.href} />}
 
     <meta charset="utf-8" />
     <meta name="description" content={description} />

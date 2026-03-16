@@ -1,14 +1,12 @@
 import rss from '@astrojs/rss';
+import { site } from "astro:config/server";
 import { getCollection } from 'astro:content';
+
 import type { APIContext } from 'astro';
 
-// documentation:
-// https://docs.astro.build/en/recipes/rss/
-
-// by default, 'rss.xml.ts' only uses the blog collection to generate the RSS feed.
-// you can create additional generators or include more collections/items in the 'items' field.
-export const title = "your-rss-feed-title"; // <- must edit!
-export const description = "your-rss-feed-description"; // <- must edit!
+export const href = new URL("/blog/rss.xml", site);
+export const title = "rss-title"; // <- must edit!
+export const description = "rss-description"; // <- must edit!
 export async function GET(ctx: APIContext) {
   let blog = await getCollection('blog');
   return rss({
