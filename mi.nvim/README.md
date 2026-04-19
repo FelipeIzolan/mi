@@ -26,7 +26,6 @@ Minimal neovim configuration concentrated in a single file (~100 ms startup time
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets Collection
 - [Saghen/blink.cmp](https://github.com/Saghen/blink.cmp) - Completion Engine
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git Integration
-- [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim) - Formatter
 - [nvimdev/indentmini.nvim](https://github.com/nvimdev/indentmini.nvim) - IndentLine
 
 ## ⌨️ Mappings

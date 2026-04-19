@@ -2,7 +2,7 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system({ 'git', 'clone', "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
@@ -19,21 +19,12 @@ require 'lazy'.setup({
   'nvim-tree/nvim-web-devicons',
   {
     'lewis6991/gitsigns.nvim',
-    event = { "BufReadPost", "BufNewFile" },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = true
   },
   {
-    'stevearc/conform.nvim',
-    event = { "BufReadPost", "BufNewFile" },
-    config = {
-      format_after_save = {
-        lsp_format = "fallback"
-      }
-    }
-  },
-  {
     'nvimdev/indentmini.nvim',
-    event = { "BufReadPost", "BufNewFile" },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require 'indentmini'.setup()
       vim.cmd.highlight('IndentLine guifg=#504945')
@@ -43,8 +34,8 @@ require 'lazy'.setup({
   {
     'nvim-treesitter/nvim-treesitter',
     branch = 'master',
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSInstallInfo", "TSModuleInfo" },
+    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = { 'TSInstall', 'TSInstallInfo', 'TSModuleInfo' },
     build = ':TSUpdate',
     config = function()
       require 'nvim-treesitter.configs'.setup {
@@ -61,13 +52,13 @@ require 'lazy'.setup({
     priority = 1000,
     opts = {
       overrides = {
-        SignColumn = { link = "Normal" },
-        StatusLine = { link = "Normal" },
-        DiagnosticSignError = { link = "GruvboxRed" },
-        DiagnosticSignWarn = { link = "GruvboxYellow" },
-        DiagnosticSignInfo = { link = "GruvboxBlue" },
-        DiagnosticSignHint = { link = "GruvboxAqua" },
-        DiagnosticSignOk = { link = "GruvboxGreen" },
+        SignColumn = { link = 'Normal' },
+        StatusLine = { link = 'Normal' },
+        DiagnosticSignError = { link = 'GruvboxRed' },
+        DiagnosticSignWarn = { link = 'GruvboxYellow' },
+        DiagnosticSignInfo = { link = 'GruvboxBlue' },
+        DiagnosticSignHint = { link = 'GruvboxAqua' },
+        DiagnosticSignOk = { link = 'GruvboxGreen' },
       }
     },
     config = function(_, opts)
@@ -109,15 +100,15 @@ require 'lazy'.setup({
       },
       keymap = {
         ['<CR>'] = { 'accept', 'fallback' },
-        ["<Tab>"] = {
-          "select_next",
-          "snippet_forward",
-          "fallback"
+        ['<Tab>'] = {
+          'select_next',
+          'snippet_forward',
+          'fallback'
         },
-        ["<S-Tab>"] = {
-          "select_prev",
-          "snippet_backward",
-          "fallback"
+        ['<S-Tab>'] = {
+          'select_prev',
+          'snippet_backward',
+          'fallback'
         },
         ['<Up>'] = {},
         ['<Down>'] = {}
@@ -125,11 +116,11 @@ require 'lazy'.setup({
     }
   },
   {
-    "mason-org/mason-lspconfig.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    'mason-org/mason-lspconfig.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      { "mason-org/mason.nvim", config = true, cmd = { "Mason", "MasonInstall" } },
-      "neovim/nvim-lspconfig",
+      { 'mason-org/mason.nvim', config = true, cmd = { 'Mason', 'MasonInstall' } },
+      'neovim/nvim-lspconfig',
       'b0o/schemastore.nvim'
     },
     config = function(_, opts)
@@ -167,6 +158,7 @@ require 'lazy'.setup({
         'man',
         'matchit',
         'matchparen',
+        'net',
         'netrwPlugin',
         'osc52',
         'rplugin',
@@ -230,7 +222,11 @@ keymap('n', '<Leader>T', ':NvimTreeClose<CR>', {})
 keymap('n', '<Leader>t', '', {
   callback = function()
     local t = require 'nvim-tree.api'.tree
-    local _ = t.is_visible() and t.focus() or t.open()
+    if t.is_visible() then
+      t.focus()
+    else
+      t.open()
+    end
   end
 })
 keymap('', '<Leader>c', '', {
@@ -263,9 +259,9 @@ keymap({ 'n', 't' }, '<Leader><Tab>', '', {
       term.win = vim.api.nvim_open_win(term.buf, true, {
         width = vim.o.columns,
         height = math.ceil(vim.o.lines * 0.35),
-        split = "below"
+        split = 'below'
       })
-      if vim.bo[term.buf].buftype ~= "terminal" then
+      if vim.bo[term.buf].buftype ~= 'terminal' then
         vim.cmd.terminal()
       end
       vim.cmd.startinsert()
@@ -307,7 +303,7 @@ function Statusline()
       ' %#DiagnosticWarn#%  ' .. #vim.diagnostic.get(0, { severity = 'Warn' }) ..
       ' %#DiagnosticHint#%  ' .. #vim.diagnostic.get(0, { severity = 'Hint' }) ..
       ' %#Statusline#%  %l:%c' ..
-      ' %#PreProc#%   ' .. "%{get(b:,'gitsigns_head','none')} " ..
+      ' %#PreProc#%   ' .. '%{get(b:,\'gitsigns_head\',\'none\')} ' ..
       ' %#SpecialKey#% ' .. vim.loop.os_uname().sysname .. ' ┃┃'
 end
 
@@ -318,9 +314,9 @@ autocmd({ 'BufEnter', 'WinEnter' }, {
 })
 autocmd('CursorHold', {
   callback = function()
-    local _, win = vim.diagnostic.open_float(nil, { scope = "line" })
+    local _, win = vim.diagnostic.open_float(nil, { scope = 'line' })
     if win ~= nil then
-      autocmd('BufEnter', {
+      autocmd({ 'BufEnter', 'BufWrite' }, {
         once = true,
         callback = function()
           if vim.api.nvim_win_is_valid(win) then
