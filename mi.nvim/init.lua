@@ -59,6 +59,9 @@ require 'lazy'.setup({
         DiagnosticSignInfo = { link = 'GruvboxBlue' },
         DiagnosticSignHint = { link = 'GruvboxAqua' },
         DiagnosticSignOk = { link = 'GruvboxGreen' },
+      },
+      palette_overrides = {
+        dark0 = "#101012"
       }
     },
     config = function(_, opts)
