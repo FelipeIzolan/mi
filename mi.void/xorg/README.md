@@ -18,7 +18,7 @@ cd mi.void/xorg
 By default, no display manager is used, so to start the xorg, in tty:
 
 ```
-$ startx
+$ exec startx
 ```
 
 ## 💽 Pieces of Software
