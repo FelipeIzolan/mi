@@ -4,7 +4,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
+    vim.api.nvim_echo({ 
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
       { out,                            'WarningMsg' },
       { '\nPress any key to exit...' },
@@ -16,17 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require 'lazy'.setup({
-  {
-    'lewis6991/gitsigns.nvim',
-    event = { 'BufReadPost', 'BufNewFile' },
-    config = true
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = { 'BufReadPost', 'BufNewFile' },
-    config = true
-  },
   {
     'nvim-treesitter/nvim-treesitter',
     branch = 'master',
@@ -48,6 +37,7 @@ require 'lazy'.setup({
     opts = {
       hijack_cursor = true,
       filters = { enable = false },
+      update_focused_file = { enable = true, update_root = true },
       renderer = {
         root_folder_label = function()
           return '  ..'
@@ -57,71 +47,6 @@ require 'lazy'.setup({
         signcolumn = 'no'
       }
     }
-  },
-  {
-    'saghen/blink.cmp',
-    event = 'InsertEnter',
-    version = '1.*',
-    dependencies = { 'rafamadriz/friendly-snippets' },
-    opts = {
-      completion = {
-        list = {
-          selection = {
-            preselect = false
-          }
-        },
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 400
-        },
-      },
-      keymap = {
-        ['<CR>'] = { 'accept', 'fallback' },
-        ['<Tab>'] = {
-          'select_next',
-          'snippet_forward',
-          'fallback'
-        },
-        ['<S-Tab>'] = {
-          'select_prev',
-          'snippet_backward',
-          'fallback'
-        },
-        ['<Up>'] = {},
-        ['<Down>'] = {}
-      }
-    }
-  },
-  {
-    'mason-org/mason-lspconfig.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = {
-      { 'mason-org/mason.nvim', config = true, cmd = { 'Mason', 'MasonInstall' } },
-      'neovim/nvim-lspconfig',
-      'b0o/schemastore.nvim'
-    },
-    config = function(_, opts)
-      require('mason-lspconfig').setup(opts);
-      local m = require('blink.cmp').get_lsp_capabilities()
-      vim.lsp.config('jsonls', {
-        settings = {
-          json = {
-            schemas = require 'schemastore'.json.schemas(),
-            validate = { enable = true }
-          }
-        },
-        capabilities = m
-      })
-      vim.lsp.config('yamlls', {
-        settings = {
-          yaml = {
-            schemaStore = { enable = false, url = '' },
-            schemas = require 'schemastore'.yaml.schemas(),
-          }
-        },
-        capabilities = m
-      })
-    end
   }
 }, {
   defaults = {
@@ -289,32 +214,14 @@ function Statusline()
     '%=' ..
     col('Directory', '%t') ..
     '%=' ..
-    col('DiagnosticError', ' ' .. #vim.diagnostic.get(0, { severity = 'Error' })) ..
-    col('DiagnosticWarn', '  ' .. #vim.diagnostic.get(0, { severity = 'Warn' })) ..
-    col('DiagnosticInfo', '  ' .. #vim.diagnostic.get(0, { severity = 'Info' })) ..
-    col('SpecialKeys', ' %l:%c ') ..
+    col('SpecialKeys', '%l:%c ') ..
     col('Keyword', vim.loop.os_uname().sysname) ..
     ' '
 end
 
 autocmd({ 'BufEnter', 'WinEnter' }, {
   callback = function()
-    vim.cmd('setlocal statusline=%!v:lua.Statusline()')
-  end
-})
-autocmd('CursorHold', {
-  callback = function()
-    local _, win = vim.diagnostic.open_float(nil, { scope = 'line' })
-    if win ~= nil then
-      autocmd({ 'BufEnter', 'BufWrite' }, {
-        once = true,
-        callback = function()
-          if vim.api.nvim_win_is_valid(win) then
-            vim.api.nvim_win_close(win, false);
-          end
-        end
-      })
-    end
+    vim.cmd.setlocal('statusline=%!v:lua.Statusline()')
   end
 })
 autocmd('FileType', {
