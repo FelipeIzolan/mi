@@ -1,3 +1,7 @@
+/*************************************/
+/* BASE                              */
+/*************************************/
+
 *,
 *::before,
 *::after {
@@ -12,12 +16,16 @@ body {
 }
 
 body {
+  color: #212121;
+  background: #FAFAFA;
   margin: auto;
   padding: 1em;
   max-width: 45em;
-  color: #212121;
-  background: #FAFAFA;
 }
+
+/*************************************/
+/* TITLES                            */
+/*************************************/
 
 h1,
 h2,
@@ -53,23 +61,12 @@ h6::before {
   content: '###### '
 }
 
-p,
-main,
-section {
-  margin: 1em 0;
-}
+/*************************************/
+/* MISCELLANEOUS                     */
+/*************************************/
 
 a {
   color: inherit;
-}
-
-svg {
-  vertical-align: middle;
-}
-
-pre {
-  padding: 1em;
-  border-radius: 3px;
 }
 
 img {
@@ -77,35 +74,20 @@ img {
   max-width: 100%;
 }
 
-blockquote {
-  margin: 0;
-  border-left: 4px solid #212121;
-  padding-left: 1em;
+pre {
+  padding: 8px;
 }
 
-ul,
-ol {
-  padding: 0;
-  list-style-position: inside;
-}
-
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  padding-inline: 1em;
+button {
+  color: #FAFAFA;
+  background: #212121;
 }
 
 pre,
 code {
-  color: white;
+  color: #FAFAFA;
   background: #212121;
   overflow: auto;
-}
-
-input:disabled,
-button:disabled {
-  opacity: 0.9;
 }
 
 td,
@@ -121,23 +103,21 @@ button,
 select,
 textarea {
   outline: none;
-  background: none;
-  padding: 3px 7px;
+  padding: 2px 8px;
   border: 1px solid #212121;
-  border-radius: 3px;
 }
 
-button,
-input[type="reset"],
-input[type="button"],
-input[type="submit"] {
-  color: #FAFAFA;
-  background: #212121;
+/*************************************/
+/* CUSTOM                            */
+/*************************************/
+
+main,
+section {
+  margin: 1em 0;
 }
 
 nav,
 footer div {
   gap: 2px;
   display: flex;
-  font-size: 14px;
 }
