@@ -26,7 +26,7 @@ Minimal neovim configuration concentrated in a single file (~100 ms startup time
 - [Saghen/blink.cmp](https://github.com/Saghen/blink.cmp) - Completion Engine
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git Integration
 
-## minimal.lua
+### minimal.lua
 
 A minimal alternative that only uses:
 
