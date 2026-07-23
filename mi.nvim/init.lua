@@ -22,19 +22,11 @@ require 'lazy'.setup({
     config = true
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = { 'BufReadPost', 'BufNewFile' },
-    config = true
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
-    event = { 'BufReadPost', 'BufNewFile' },
-    cmd = { 'TSInstall', 'TSInstallInfo', 'TSModuleInfo' },
+    lazy = false,
     build = ':TSUpdate',
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter'.setup {
         auto_install = true,
         highlight = {
           enable = true
@@ -179,7 +171,7 @@ o.termguicolors = true
 o.clipboard = 'unnamedplus'
 
 vim.cmd.colorscheme('retrobox')
-vim.cmd.highlight('Normal guibg=#101012')
+vim.api.nvim_set_hl(0, 'Normal', { bg = nil })
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'SignColumn', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })

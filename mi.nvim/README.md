@@ -5,12 +5,12 @@ Minimal neovim configuration concentrated in a single file (~100 ms startup time
 ## 📋 Pre-requisites
 - [Neovim 0.10+](https://neovim.io/)
 - [Nerd Font](https://www.nerdfonts.com/)
-- GCC (for Windows MinGW)
+- C Compiler 
 - Make
 - cURL
 
 > [!IMPORTANT]
-> I recommend using [scoop](https://scoop.sh/) (a command-line installer for Windows) to install MinGW and Make;
+> I recommend using [scoop](https://scoop.sh/) (a command-line installer for Windows) to install C compiler and Make;
 
 ## 🧩 Plugins
 
@@ -25,7 +25,14 @@ Minimal neovim configuration concentrated in a single file (~100 ms startup time
 - [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) - Snippets Collection
 - [Saghen/blink.cmp](https://github.com/Saghen/blink.cmp) - Completion Engine
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git Integration
-- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) - Indent-Line
+
+## minimal.lua
+
+A minimal alternative that only uses:
+
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin Manager
+- [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) - File Explorer
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Syntax Highlighting
 
 ## ⌨️ Mappings
 

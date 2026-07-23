@@ -18,12 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 require 'lazy'.setup({
   {
     'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
-    event = { 'BufReadPost', 'BufNewFile' },
-    cmd = { 'TSInstall', 'TSInstallInfo', 'TSModuleInfo' },
+    lazy = false,
     build = ':TSUpdate',
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter'.setup {
         auto_install = true,
         highlight = {
           enable = true
@@ -33,7 +31,6 @@ require 'lazy'.setup({
   },
   {
     'nvim-tree/nvim-tree.lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       hijack_cursor = true,
       filters = { enable = false },
@@ -104,7 +101,7 @@ o.termguicolors = true
 o.clipboard = 'unnamedplus'
 
 vim.cmd.colorscheme('retrobox')
-vim.cmd.highlight('Normal guibg=#101012')
+vim.api.nvim_set_hl(0, 'Normal', { bg = nil })
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'SignColumn', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
