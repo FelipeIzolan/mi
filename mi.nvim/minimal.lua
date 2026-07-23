@@ -1,4 +1,14 @@
--- LAZY
+local g = vim.g
+local o = vim.opt
+local keymap = vim.keymap.set
+local autocmd = vim.api.nvim_create_autocmd
+
+g.mapleader = ' '
+local term = {
+  buf = nil,
+  win = nil
+}
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -13,21 +23,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
-vim.opt.rtp:prepend(lazypath)
+o.rtp:prepend(lazypath)
 
 require 'lazy'.setup({
   {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
-    build = ':TSUpdate',
-    config = function()
-      require 'nvim-treesitter'.setup {
-        auto_install = true,
-        highlight = {
-          enable = true
-        }
-      }
-    end
+    build = ':TSUpdate'
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -71,18 +73,6 @@ require 'lazy'.setup({
     }
   }
 })
-
--- NEOVIM
-local g = vim.g
-local o = vim.opt
-local keymap = vim.keymap.set
-local autocmd = vim.api.nvim_create_autocmd
-
-g.mapleader = ' '
-local term = {
-  buf = nil,
-  win = nil
-}
 
 o.mouse = 'a'
 o.signcolumn = 'yes:1'
@@ -222,9 +212,18 @@ autocmd({ 'BufEnter', 'WinEnter' }, {
   end
 })
 autocmd('FileType', {
-  pattern = 'bigfile',
+  pattern = '*',
   callback = function(ev)
-    vim.treesitter.stop(ev.buf)
-    vim.bo[ev.buf].syntax = 'off'
+    local p = require 'nvim-treesitter'
+    local l = vim.treesitter.language.get_lang(ev.match)
+    if vim.tbl_contains(p.get_available(), l) then
+      if not vim.tbl_contains(p.get_installed(), l) then
+        p.install(l):wait() 
+      end
+      vim.treesitter.start(ev.buf, l)
+    elseif ev.match == 'bigfile' then
+      vim.treesitter.stop(ev.buf)
+      vim.bo[ev.buf].syntax = 'off'
+    end
   end
 })
