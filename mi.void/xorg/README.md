@@ -56,5 +56,3 @@ $ exec startx
 
 <img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/9693973e-d32b-4083-ba63-28856e30d0e4" />
 <img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/e7d04a56-7dae-4d8b-9ee6-0205d4d22c97" />
-
-

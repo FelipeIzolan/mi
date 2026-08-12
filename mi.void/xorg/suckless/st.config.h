@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono Nerd Font:pixelsize=12:antialias=true:autohint=true";
+static char *font = "JetBrainsMono Nerd Font:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 0;
 
 /*
@@ -95,40 +95,39 @@ unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-    /* Normal colors */
-	[0]   = "#171b23",
-	[1]   = "#be5046",
-	[2]   = "#98c379",
-	[3]   = "#d19a66",
-	[4]   = "#61afef",
-	[5]   = "#c678dd",
-	[6]   = "#56b6c2",
-	[7]   = "#828997",
+	/* 8 normal colors */
+	"#45475A",
+	"#F38BA8",
+	"#A6E3A1",
+	"#F9E2AF",
+	"#89B4FA",
+	"#F5C2E7",
+	"#94E2D5",
+	"#BAC2DE",
 
-    /* Bright colors */
-	[8]   = "#5c6370",
-	[9]   = "#e06c75",
-	[10]  = "#98c379",
-	[11]  = "#e5c07b",
-	[12]  = "#61afef",
-	[13]  = "#c678dd",
-	[14]  = "#56b6c2",
-	[15]  = "#abb2bf",
+	/* 8 bright colors */
+	"#585B70",
+	"#F38BA8",
+	"#A6E3A1",
+	"#F9E2AF",
+	"#89B4FA",
+	"#F5C2E7",
+	"#94E2D5",
+	"#A6ADC8",
 
-    /* Foreground and background */
-	[256] = "#a7aab0",
-	[257] = "#101012",
+[256] = "#EFF1F5", /* default foreground colour */
+[257] = "#08080D", /* default background colour */
+[258] = "#F5E0DC", /*575268*/
+
 };
 
-
 /*
- * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 256;
 unsigned int defaultbg = 257;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 258;
 
 /*
  * Default shape of cursor

@@ -3,13 +3,13 @@
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
-static const char *fonts[] = { "JetBrainsMono Nerd Font:size=12" };
+static const char *fonts[] = { "JetBrainsMono Nerd Font:size=16" };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#a7aab0", "#101012" },
-	[SchemeSel] = { "#57a5e5", "#101012" },
-	[SchemeOut] = { "#a7aab0", "#101012" },
+	[SchemeNorm] = { "#EFF1F5", "#08080D" },
+	[SchemeSel] = { "#EFF1F5", "#89B4FA" },
+	[SchemeOut] = { "#EFF1F5", "#89B4FA" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
