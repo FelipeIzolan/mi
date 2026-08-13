@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat << 'EOF'
 
 | mi.void           |
@@ -44,6 +46,7 @@ sudo xbps-install -y xorg-minimal\
 curl https://dl.suckless.org/dwm/dwm-6.8.tar.gz -o ./suckless/dwm-6.8.tar.gz
 curl https://dl.suckless.org/st/st-0.9.3.tar.gz -o ./suckless/st-0.9.3.tar.gz
 curl https://dl.suckless.org/tools/dmenu-5.4.tar.gz -o ./suckless/dmenu-5.4.tar.gz
+sudo curl -o /usr/local/bin/dmenu_drun https://raw.githubusercontent.com/FelipeIzolan/dmenu_drun/refs/heads/main/dmenu_drun
 
 tar -xzf ./suckless/dwm-6.8.tar.gz -C ./suckless
 tar -xzf ./suckless/st-0.9.3.tar.gz -C ./suckless
