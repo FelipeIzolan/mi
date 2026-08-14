@@ -30,6 +30,9 @@ for package in "${queue[@]}"; do
     curl -o ~/.config/nvim/init.lua https://raw.githubusercontent.com/FelipeIzolan/mi/refs/heads/main/mi.nvim/init.lua
   fi
   sudo xbps-install -y $package
+  if [ $package = 'pulsemixer' ]; then
+   echo -e "[Desktop Entry]\nExec=pulsemixer\nTerminal=true" | sudo tee /usr/share/applications/pulsemixer.desktop
+  fi
   if [ $package = 'imv' ]; then
     xdg-mime default imv.desktop $(grep "^image/" /usr/share/mime/types)
   fi
