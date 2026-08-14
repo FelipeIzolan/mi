@@ -54,5 +54,5 @@ $ exec startx
 
 ## 🖼️ Screenshoots
 
-<img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/9693973e-d32b-4083-ba63-28856e30d0e4" />
-<img width="1440" height="900" alt="image" src="https://github.com/user-attachments/assets/e7d04a56-7dae-4d8b-9ee6-0205d4d22c97" />
+<img width="1920" height="1080" alt="Screenshot_2026-08-13_11-49-14" src="https://github.com/user-attachments/assets/4d3ed6e1-46ca-4fa6-9aaf-be3f632e2440" />
+<img width="1920" height="1080" alt="Screenshot_2026-08-13_11-49-45" src="https://github.com/user-attachments/assets/2fcebfea-e178-4afd-86c1-4a7928c45213" />
