@@ -115,6 +115,7 @@ cp -fv ./resources/JetBrainsMonoNerdFont-Regular.ttf ~/.local/share/fonts/JetBra
 
 sudo chmod -R 777 ~/.cache
 sudo chmod +x ~/statusbar.sh
+sudo chmod +x /usr/local/bin/dmenu_drun
 
 sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
 sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
